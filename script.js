@@ -130,8 +130,10 @@ function showResult(){
         messageEl.textContent = 'It is a tie!!'
     }else if( tortoisePosition >= TRACK_LENGTH){
         messageEl.textContent = 'TORTOISE WINS!!! YAYYY'
+        tortoiseWins += 1
     }else if(harePosition >= TRACK_LENGTH){
         messageEl.textContent = 'Hare wins. YUCK!'
+        hareWins += 1
     }else{
         messageEl.textContent = 'race stopped...'
     }
@@ -139,3 +141,4 @@ function showResult(){
 
 //initial render of the empty track
 renderTrack()
+updateScore()
