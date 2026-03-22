@@ -86,7 +86,7 @@ function moveHare(){
         //3-6 slip
         harePosition -= 7
     }else{
-        tortoisePosition += 8
+        harePosition += 8
     }
 }
 
@@ -137,6 +137,8 @@ function showResult(){
     }else{
         messageEl.textContent = 'race stopped...'
     }
+
+    updateScore()
 }
 
 //initial render of the empty track
