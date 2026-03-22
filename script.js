@@ -17,7 +17,8 @@ let tortoisePosition = 1
 let harePosition = 1
 let raceIntervalId = null
 let stepCount = 0
-
+let tortoiseWins = 0
+let hareWins = 0
 
 startBtn.addEventListener("click", Startrace)
 
@@ -120,7 +121,9 @@ function renderTrack(){
 }
 
 //add score above tracking
-
+function updateScore(){
+    scoreEl.textContent = `Tortoise: ${tortoiseWins} | Hare: ${hareWins}`
+}
 
 function showResult(){
     if(tortoisePosition >= TRACK_LENGTH && harePosition >= TRACK_LENGTH){
