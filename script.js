@@ -11,11 +11,13 @@ const TRACK_LENGTH = 70 //sometimes constant variables are all caps
 const startBtn = document.getElementById("startBtn")
 const messageEl = document.getElementById("message")
 const trackEl = document.getElementById("track")
+const scoreEl = document.getElementById("score")
 
 let tortoisePosition = 1
 let harePosition = 1
 let raceIntervalId = null
 let stepCount = 0
+
 
 startBtn.addEventListener("click", Startrace)
 
@@ -116,6 +118,9 @@ function renderTrack(){
         trackEl.appendChild(cell)
     }
 }
+
+//add score above tracking
+
 
 function showResult(){
     if(tortoisePosition >= TRACK_LENGTH && harePosition >= TRACK_LENGTH){
