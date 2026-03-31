@@ -11,11 +11,14 @@ const TRACK_LENGTH = 70 //sometimes constant variables are all caps
 const startBtn = document.getElementById("startBtn")
 const messageEl = document.getElementById("message")
 const trackEl = document.getElementById("track")
+const scoreEl = document.getElementById("score")
 
 let tortoisePosition = 1
 let harePosition = 1
 let raceIntervalId = null
 let stepCount = 0
+let tortoiseWins = 0
+let hareWins = 0
 
 startBtn.addEventListener("click", Startrace)
 
@@ -83,7 +86,7 @@ function moveHare(){
         //3-6 slip
         harePosition -= 7
     }else{
-        tortoisePosition += 8
+        harePosition += 8
     }
 }
 
@@ -117,17 +120,27 @@ function renderTrack(){
     }
 }
 
+//add score above tracking
+function updateScore(){
+    scoreEl.textContent = `Tortoise: ${tortoiseWins} | Hare: ${hareWins}`
+}
+
 function showResult(){
     if(tortoisePosition >= TRACK_LENGTH && harePosition >= TRACK_LENGTH){
         messageEl.textContent = 'It is a tie!!'
     }else if( tortoisePosition >= TRACK_LENGTH){
         messageEl.textContent = 'TORTOISE WINS!!! YAYYY'
+        tortoiseWins += 1
     }else if(harePosition >= TRACK_LENGTH){
         messageEl.textContent = 'Hare wins. YUCK!'
+        hareWins += 1
     }else{
         messageEl.textContent = 'race stopped...'
     }
+
+    updateScore()
 }
 
 //initial render of the empty track
 renderTrack()
+updateScore()
